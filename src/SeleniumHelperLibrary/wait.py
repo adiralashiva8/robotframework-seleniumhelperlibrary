@@ -24,4 +24,15 @@ class WaitHelper(Util):
     @keyword("Wait For WebElement")
     def wait_for_webelement(self, locator):
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
-        Util.wait_for_element(self.sellib, locator)
+        try:
+            Util.wait_for_element(self, self.sellib, locator)
+        except Exception as e:
+            Util.log_failure(self, self.sellib, e)
+
+    @keyword("Wait Until DOM Loaded")
+    def wait_until_dom_loaded(self):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        try:
+            self.sellib.wait_for_condition('return window.document.readyState === "complete"')
+        except Exception as e:
+            Util.log_failure(self, self.sellib, e)

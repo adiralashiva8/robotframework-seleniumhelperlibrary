@@ -44,3 +44,10 @@ class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
         if not isPassed:
             error_msg = "{expected_value} is not found in {actual_value}".format(expected_value=expected, actual_value=actual)
             log_failure(self.sellib, error_msg)
+    
+    @keyword("Reload Webpage")
+    def reload_webpage(self):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        self.sellib.reload_page()
+        BuiltIn().run_keyword("SeleniumHelperLibrary.Wait Until DOM Loaded")
+
