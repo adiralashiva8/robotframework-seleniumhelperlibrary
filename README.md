@@ -1,8 +1,8 @@
 # robotframework-seleniumhelper
 Helper keywords for robotframework-selenium
 
-[![PyPI version](https://badge.fury.io/py/robotframework-seleniumhelper.svg)](https://badge.fury.io/py/robotframework-seleniumhelper)
-[![Downloads](https://pepy.tech/badge/robotframework-seleniumhelper)](https://pepy.tech/project/robotframework-seleniumhelper)
+[![PyPI version](https://badge.fury.io/py/robotframework-seleniumhelperlibrary.svg)](https://badge.fury.io/py/robotframework-seleniumhelperlibrary)
+[![Downloads](https://pepy.tech/badge/robotframework-seleniumhelperlibrary)](https://pepy.tech/project/robotframework-seleniumhelperlibrary)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
