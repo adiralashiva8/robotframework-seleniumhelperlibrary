@@ -1,6 +1,7 @@
 *** Settings ***
 Library          SeleniumLibrary
 Library          SeleniumHelperLibrary
+Resource         ${EXECDIR}/atests/setup.resource
 Test Setup       Atest Test Setup
 Test Teardown    Close All Browsers
 
@@ -16,7 +17,8 @@ Checkbox Test
     Unselect Checkbox Item    xpath://label[./span[text()='Home']]//span
 
 Click Test
-    Click On WebElement   xpath://div[normalize-space()='Elements']
+    ${locator}=    Get Xpath With Normalize Space Text    div    Elements
+    Click On WebElement   ${locator}
     Click On WebElement If Exist   xpath://div[normalize-space()='Elements 123']
     Click On WebElement With Retry   xpath://div[normalize-space()='Elements Demo']
 
@@ -50,14 +52,3 @@ Wait Test
     Wait Until Page Contains With Retry    Visible After 5 Seconds
     Reload Webpage
     Wait Until Page Contains Element With Retry   id:visibleAfter
-
-*** Keywords ***
-Atest Test Setup
-    Open Browser   https://demoqa.com/automation-practice-form   Chrome
-    Wait Until Dom Loaded
-    Wait Until Page Contains With Retry    Student Registration Form
-
-Navigate To WebPage
-    [Arguments]    ${url}
-    Go To    ${url}
-    Wait Until Dom Loaded

@@ -11,9 +11,11 @@ from .select import SelectHelper
 from .textarea import TextareaHelper
 from .title import TitleHelper
 from .wait import WaitHelper
+from .xpath import XpathHelper
 
 class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
- FrameHelper, InputHelper, SelectHelper, TextareaHelper, TitleHelper, WaitHelper):
+ FrameHelper, InputHelper, SelectHelper, TextareaHelper, TitleHelper, WaitHelper,
+ XpathHelper):
 
     """
     Core principal of helper library to achieve synchornization before performing any action on ``WebElement``
