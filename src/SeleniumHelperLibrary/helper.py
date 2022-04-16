@@ -17,7 +17,7 @@ from .util import Util
 
 class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
  FrameHelper, InputHelper, SelectHelper, TextareaHelper, TitleHelper, WaitHelper,
- XpathHelper, Util, TextHelper):
+ XpathHelper, TextHelper):
 
     """
     Core principal of helper library to achieve synchronization before performing any action on ``WebElement``
