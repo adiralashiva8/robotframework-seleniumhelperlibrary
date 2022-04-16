@@ -10,22 +10,22 @@ class InputHelper(Util):
         pass
     
     @keyword("Input Text Into Textbox")
-    def input_text_into_textbox(self, locator, text, clear=True):
+    def input_text_into_textbox(self, locator, text):
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
-            self.sellib.input_text(locator, text, clear)
+            self.sellib.input_text(locator, text)
         except Exception as e:
             Util.log_failure(self, self.sellib, e)
     
     @keyword("Input Text Into Textbox If Exist")
-    def input_text_into_textbox_if_exist(self, locator, text, clear=True):
+    def input_text_into_textbox_if_exist(self, locator, text):
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             element_count = self.sellib.get_element_count(locator)
             if element_count > 0 :
                 Util.wait_for_element(self, self.sellib, locator)
-                self.sellib.input_text(locator, text, clear)
+                self.sellib.input_text(locator, text)
             else:
                 logger.info("No Action Performed: Element with locator {loc} count is: {count}".format(loc=locator, count=element_count))
         except Exception as e:
@@ -43,8 +43,8 @@ class InputHelper(Util):
             Util.log_failure(self, self.sellib, e)
         
     @keyword("Input Text Into Textbox With Retry")
-    def input_text_into_textbox_with_retry(self, locator, text, retry="3x", retry_interval="2s", clear=True):
-        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Input Text Into Textbox", locator, text, clear)
+    def input_text_into_textbox_with_retry(self, locator, text, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Input Text Into Textbox", locator, text)
     
     @keyword("Textbox Should Contain Value")
     def textbox_should_contain_value(self, locator, text):

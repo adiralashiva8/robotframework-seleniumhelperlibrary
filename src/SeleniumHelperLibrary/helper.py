@@ -12,13 +12,14 @@ from .textarea import TextareaHelper
 from .title import TitleHelper
 from .wait import WaitHelper
 from .xpath import XpathHelper
+from .util import Util
 
 class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
  FrameHelper, InputHelper, SelectHelper, TextareaHelper, TitleHelper, WaitHelper,
- XpathHelper):
+ XpathHelper, Util):
 
     """
-    Core principal of helper library to achieve synchornization before performing any action on ``WebElement``
+    Core principal of helper library to achieve synchronization before performing any action on ``WebElement``
 
     Every ``Keyword`` consist following steps
         - Wait For WebElement
@@ -38,18 +39,17 @@ class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         js = "window.scroll({x},{y})".format(x=x, y=y)
         self.sellib.execute_javascript(js)
-    
+
     @keyword("Should Contain With Screenshot")
     def should_contain_with_screenshot(self, actual, expected):
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         isPassed = BuiltIn().run_keyword_and_return_status("BuiltIn.Should Contain", actual, expected)
         if not isPassed:
             error_msg = "{expected_value} is not found in {actual_value}".format(expected_value=expected, actual_value=actual)
-            log_failure(self.sellib, error_msg)
-    
+            Util.log_failure(self.sellib, error_msg)
+
     @keyword("Reload Webpage")
     def reload_webpage(self):
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         self.sellib.reload_page()
         BuiltIn().run_keyword("SeleniumHelperLibrary.Wait Until DOM Loaded")
-
