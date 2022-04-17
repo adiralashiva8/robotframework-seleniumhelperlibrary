@@ -47,7 +47,7 @@ class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
         isPassed = BuiltIn().run_keyword_and_return_status("BuiltIn.Should Contain", actual, expected)
         if not isPassed:
             error_msg = "{expected_value} is not found in {actual_value}".format(expected_value=expected, actual_value=actual)
-            Util.log_failure(self.sellib, error_msg)
+            Util.log_failure(self, self.sellib, error_msg)
     
     @keyword("Should Be Equal As Strings With Screenshot")
     def should_be_equal_as_strings_with_screenshot(self, actual, expected):
@@ -55,7 +55,7 @@ class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
         isPassed = BuiltIn().run_keyword_and_return_status("BuiltIn.Should Be Equal As Strings", actual, expected)
         if not isPassed:
             error_msg = "{expected_value} is not same as {actual_value}".format(expected_value=expected, actual_value=actual)
-            Util.log_failure(self.sellib, error_msg)
+            Util.log_failure(self, self.sellib, error_msg)
 
     @keyword("Reload Webpage")
     def reload_webpage(self):

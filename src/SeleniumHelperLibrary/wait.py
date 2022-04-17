@@ -36,3 +36,11 @@ class WaitHelper(Util):
             self.sellib.wait_for_condition('return window.document.readyState === "complete"')
         except Exception as e:
             Util.log_failure(self, self.sellib, e)
+    
+    @keyword("Wait Until Element Contains With Retry")
+    def wait_until_element_contains_with_retry(self, locator, value, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Element Contains", locator, value)
+    
+    @keyword("Wait Until Element Does Not Contain With Retry")
+    def wait_until_element_does_not_contain_with_retry(self, locator, value, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Element Does Not Contain", locator, value)
