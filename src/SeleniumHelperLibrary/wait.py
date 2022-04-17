@@ -40,6 +40,10 @@ class WaitHelper(Util):
             Util.wait_for_element(self, self.sellib, locator)
         except Exception as e:
             Util.log_failure(self, self.sellib, e)  
+    
+    @keyword("Wait For WebElement With Retry")
+    def wait_for_webelement_with_retry(self, locator, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Wait For WebElement", locator)
 
     @keyword("Wait Until DOM Loaded")
     def wait_until_dom_loaded(self):
