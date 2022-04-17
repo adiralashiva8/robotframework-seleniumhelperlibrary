@@ -49,6 +49,14 @@ class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
             error_msg = "{expected_value} is not found in {actual_value}".format(expected_value=expected, actual_value=actual)
             Util.log_failure(self, self.sellib, error_msg)
     
+    @keyword("Should Not Contain With Screenshot")
+    def should_not_contain_with_screenshot(self, actual, expected):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        isPassed = BuiltIn().run_keyword_and_return_status("BuiltIn.Should Not Contain", actual, expected)
+        if not isPassed:
+            error_msg = "{expected_value} is not found in {actual_value}".format(expected_value=expected, actual_value=actual)
+            Util.log_failure(self, self.sellib, error_msg)
+    
     @keyword("Should Be Equal As Strings With Screenshot")
     def should_be_equal_as_strings_with_screenshot(self, actual, expected):
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')

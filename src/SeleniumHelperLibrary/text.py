@@ -19,3 +19,14 @@ class TextHelper(Util):
         except Exception as e:
             Util.log_failure(self, self.sellib, e)
         return value
+    
+    @keyword("Get WebElement Value")
+    def get_webelement_value(self, locator, value):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        value = None
+        try:
+            Util.wait_for_element(self, self.sellib, locator)
+            value = self.sellib.get_value(locator, text)
+        except Exception as e:
+            Util.log_failure(self, self.sellib, e)
+        return value
