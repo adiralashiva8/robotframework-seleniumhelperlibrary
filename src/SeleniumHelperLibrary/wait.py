@@ -13,13 +13,25 @@ class WaitHelper(Util):
     def wait_until_element_is_visible_with_retry(self, locator, retry="3x", retry_interval="2s"):
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Element Is Visible", locator)
     
+    @keyword("Wait Until Element Is Not Visible With Retry")
+    def wait_until_element_is_not_visible_with_retry(self, locator, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Element Is Not Visible", locator)
+    
     @keyword("Wait Until Page Contains With Retry")
     def wait_until_page_contains_with_retry(self, text, retry="3x", retry_interval="2s"):
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Page Contains", text)
     
+    @keyword("Wait Until Page Does Not Contain With Retry")
+    def wait_until_page_does_not_contain_with_retry(self, text, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Page Does Not Contain", text)
+    
     @keyword("Wait Until Page Contains Element With Retry")
     def wait_until_page_contains_element_with_retry(self, locator, retry="3x", retry_interval="2s"):
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Page Contains Element", locator)
+    
+    @keyword("Wait Until Page Does Not Contain Element With Retry")
+    def wait_until_page_does_not_contain_element_with_retry(self, locator, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Page Does Not Contain Element", locator)
     
     @keyword("Wait For WebElement")
     def wait_for_webelement(self, locator):
@@ -27,7 +39,7 @@ class WaitHelper(Util):
         try:
             Util.wait_for_element(self, self.sellib, locator)
         except Exception as e:
-            Util.log_failure(self, self.sellib, e)
+            Util.log_failure(self, self.sellib, e)  
 
     @keyword("Wait Until DOM Loaded")
     def wait_until_dom_loaded(self):
@@ -39,8 +51,12 @@ class WaitHelper(Util):
     
     @keyword("Wait Until Element Contains With Retry")
     def wait_until_element_contains_with_retry(self, locator, value, retry="3x", retry_interval="2s"):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        Util.wait_for_element(self, self.sellib, locator)
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Element Contains", locator, value)
     
     @keyword("Wait Until Element Does Not Contain With Retry")
     def wait_until_element_does_not_contain_with_retry(self, locator, value, retry="3x", retry_interval="2s"):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        Util.wait_for_element(self, self.sellib, locator)
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumLibrary.Wait Until Element Does Not Contain", locator, value)
