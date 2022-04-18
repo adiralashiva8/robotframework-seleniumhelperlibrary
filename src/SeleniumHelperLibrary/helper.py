@@ -13,18 +13,21 @@ from .title import TitleHelper
 from .wait import WaitHelper
 from .xpath import XpathHelper
 from .text import TextHelper
+from .text import TextHelper
+from .link import LinkHelper
+from .button import ButtonHelper
 from .util import Util
 
 class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
  FrameHelper, InputHelper, SelectHelper, TextareaHelper, TitleHelper, WaitHelper,
- XpathHelper, TextHelper):
+ XpathHelper, LinkHelper, ButtonHelper, TextHelper):
 
     """
     Core principal of helper library to achieve synchronization before performing any action on ``WebElement``
 
     Every ``Keyword`` consist following steps
         - Wait For WebElement
-        - Scroll To WebElement (ignores scroll issues)
+        - Scroll To WebElement (ignores scroll issue)
         - Perform Respective Action
     
     """
