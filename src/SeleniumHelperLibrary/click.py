@@ -34,33 +34,3 @@ class ClickHelper(Util):
                 logger.info("No Action Performed: Element with locator {loc} count is: {count}".format(loc=locator, count=element_count))
         except Exception as e:
             Util.log_failure(self, self.sellib, e)
-    
-    @keyword("Click On WebElement By Text")
-    def click_on_webelement_by_text(self, text):
-        locator = "//*[contains(normalize-space(text(),'{text}'))]".format(text=text)
-        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
-        try:
-            Util.wait_for_element(self, self.sellib, locator)
-            self.sellib.click_element(locator)
-        except Exception as e:
-            Util.log_failure(self, self.sellib, e)
-    
-    @keyword("Click On WebElement By Title")
-    def click_on_webelement_by_text(self, title):
-        locator = "//*[contains(normalize-space(@title,'{title}'))]".format(title=title)
-        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
-        try:
-            Util.wait_for_element(self, self.sellib, locator)
-            self.sellib.click_element(locator)
-        except Exception as e:
-            Util.log_failure(self, self.sellib, e)
-    
-    @keyword("Click On WebElement By Attribute Value")
-    def click_on_webelement_by_attribute_value(self, attribute, value):
-        locator = "//*[contains(normalize-space(@{attribute},'{value}'))]".format(attribute=attribute, value=value)
-        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
-        try:
-            Util.wait_for_element(self, self.sellib, locator)
-            self.sellib.click_element(locator)
-        except Exception as e:
-            Util.log_failure(self, self.sellib, e)

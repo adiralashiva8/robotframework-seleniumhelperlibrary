@@ -39,11 +39,23 @@ class WaitHelper(Util):
         try:
             Util.wait_for_element(self, self.sellib, locator)
         except Exception as e:
-            Util.log_failure(self, self.sellib, e)  
-    
+            Util.log_failure(self, self.sellib, e)
+
+    @keyword("Wait For WebElement Disappear")
+    def wait_for_webelement_disappear(self, locator):
+        self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
+        try:
+            Util.wait_for_element_not_present(self, self.sellib, locator)
+        except Exception as e:
+            Util.log_failure(self, self.sellib, e) 
+
     @keyword("Wait For WebElement With Retry")
     def wait_for_webelement_with_retry(self, locator, retry="3x", retry_interval="2s"):
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Wait For WebElement", locator)
+    
+    @keyword("Wait For WebElement Disappear With Retry")
+    def wait_for_webelement_disappear_with_retry(self, locator, retry="3x", retry_interval="2s"):
+        BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Wait For WebElement Disappear", locator)
 
     @keyword("Wait Until DOM Loaded")
     def wait_until_dom_loaded(self):

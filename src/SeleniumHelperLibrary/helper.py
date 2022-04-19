@@ -16,11 +16,12 @@ from .text import TextHelper
 from .text import TextHelper
 from .link import LinkHelper
 from .button import ButtonHelper
+from .webelement import WebElementHelper
 from .util import Util
 
 class SeleniumHelperLibrary(AttributeHelper, CheckboxHelper, ClickHelper,
  FrameHelper, InputHelper, SelectHelper, TextareaHelper, TitleHelper, WaitHelper,
- XpathHelper, LinkHelper, ButtonHelper, TextHelper):
+ XpathHelper, LinkHelper, ButtonHelper, WebElementHelper, TextHelper):
 
     """
     Core principal of helper library to achieve synchronization before performing any action on ``WebElement``
