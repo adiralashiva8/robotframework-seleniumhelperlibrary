@@ -11,6 +11,9 @@ class FrameHelper(Util):
     
     @keyword("Switch To Iframe")
     def switch_to_iframe(self, locator):
+        """
+        Wait for `iframe` with ``locator`` and switches to iframe
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)

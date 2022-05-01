@@ -11,6 +11,9 @@ class TextareaHelper(Util):
     
     @keyword("Textarea Field Value Should Be")
     def textarea_field_value_should_be(self, locator, text):
+        """
+        Wait for ``locator`` in webpage and validates given `text` present in textarea
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -20,6 +23,9 @@ class TextareaHelper(Util):
 
     @keyword("Textarea Field Value Should Contain")
     def textarea_field_value_should_contain(self, locator, text):
+        """
+        Wait for ``locator`` in webpage and validates given `text` contains in textarea
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)

@@ -11,6 +11,9 @@ class TitleHelper(Util):
 
     @keyword("Title Should Contain")
     def title_should_contain(self, value):
+        """
+        Fetch current window title and compare title contains `value`
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             title = self.sellib.get_title()

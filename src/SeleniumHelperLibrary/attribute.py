@@ -11,6 +11,9 @@ class AttributeHelper(Util):
     
     @keyword("Get WebElement Attribute")
     def get_webelement_attribute(self, locator, attribute):
+        """
+        Wait for `locator` in webpage then fetch & return `attribute` value
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         value = None
         try:
@@ -22,6 +25,9 @@ class AttributeHelper(Util):
     
     @keyword("WebElement Attribute Should Contain")
     def webelement_attribute_should_contain(self, locator, attribute, value):
+        """
+        Wait for `locator` in webpage then fetch & compare `attribute` value with `value` argument
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)

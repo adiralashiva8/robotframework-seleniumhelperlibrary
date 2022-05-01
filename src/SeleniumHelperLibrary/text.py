@@ -11,6 +11,9 @@ class TextHelper(Util):
     
     @keyword("Get WebElement Text")
     def get_webelement_text(self, locator):
+        """
+        Wait for `locator`then fetch and return webelement text
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         value = None
         try:
@@ -21,12 +24,15 @@ class TextHelper(Util):
         return value
     
     @keyword("Get WebElement Value")
-    def get_webelement_value(self, locator, value):
+    def get_webelement_value(self, locator):
+        """
+        Wait for `locator` then fetch and return webelement `@value` attribute text
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         value = None
         try:
             Util.wait_for_element(self, self.sellib, locator)
-            value = self.sellib.get_value(locator, text)
+            value = self.sellib.get_value(locator)
         except Exception as e:
             Util.log_failure(self, self.sellib, e)
         return value

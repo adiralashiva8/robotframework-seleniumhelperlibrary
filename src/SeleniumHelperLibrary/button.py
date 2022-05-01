@@ -11,7 +11,12 @@ class ButtonHelper(Util):
     
     @keyword("Button By Text Should Be Present")
     def button_by_text_should_be_present(self, text):
-        locator = "//button[contains(normalize-space(text(),'{text}'))]".format(text=text)
+        """
+        Wait for button with ``text`` present in web page
+         - uses ``//button[contains(normalize-space(text()),'{text}')]`` locator internally
+         - ``text`` will be replaced in locator
+        """
+        locator = "//button[contains(normalize-space(text()),'{text}')]".format(text=text)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -20,7 +25,12 @@ class ButtonHelper(Util):
     
     @keyword("Button By Text Should Not Be Present")
     def button_by_text_should_not_be_present(self, text):
-        locator = "//button[contains(normalize-space(text(),'{text}'))]".format(text=text)
+        """
+        Waits for button with ``text`` not present in web page
+         - uses ``//button[contains(normalize-space(text()),'{text}')]`` locator internally
+         - ``text`` will be replaced in locator
+        """
+        locator = "//button[contains(normalize-space(text()),'{text}')]".format(text=text)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element_not_present(self, self.sellib, locator)
@@ -29,7 +39,12 @@ class ButtonHelper(Util):
 
     @keyword("Click On Button By Text")
     def click_on_button_by_text(self, text):
-        locator = "//button[contains(normalize-space(text(),'{text}'))]".format(text=text)
+        """
+        Waits for button with ``text`` and perform click action on button
+         - uses ``//button[contains(normalize-space(text()),'{text}')]`` locator internally
+         - ``text`` will be replaced in locator
+        """
+        locator = "//button[contains(normalize-space(text()),'{text}')]".format(text=text)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -39,11 +54,19 @@ class ButtonHelper(Util):
     
     @keyword("Click On Button By Text With Retry")
     def click_on_button_by_text_with_retry(self, text, retry="3x", retry_interval="2s"):
+        """
+        Similar to ``Click On Button By Text`` with retry
+        """
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Click On Button By Text", text)
     
     @keyword("Button By Title Should Be Present")
     def button_by_title_should_be_present(self, title):
-        locator = "//button[contains(normalize-space(@title,'{title}'))]".format(title=title)
+        """
+        Wait for button with ``@title`` attribute value present in web page
+         - uses ``//button[contains(normalize-space(@title),'{title}')]`` locator internally
+         - ``title`` will be replaced in locator
+        """
+        locator = "//button[contains(normalize-space(@title),'{title}')]".format(title=title)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -52,7 +75,12 @@ class ButtonHelper(Util):
     
     @keyword("Button By Title Should Not Be Present")
     def button_by_title_should_not_be_present(self, title):
-        locator = "//button[contains(normalize-space(@title,'{title}'))]".format(title=title)
+        """
+        Wait for button with ``@title`` attribute value not present in web page
+         - uses ``//button[contains(normalize-space(@title),'{title}')]`` locator internally
+         - ``title`` will be replaced in locator
+        """
+        locator = "//button[contains(normalize-space(@title),'{title}')]".format(title=title)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element_not_present(self, self.sellib, locator)
@@ -61,7 +89,12 @@ class ButtonHelper(Util):
 
     @keyword("Click On Button By Title")
     def click_on_button_by_title(self, title):
-        locator = "//button[contains(normalize-space(@title,'{title}'))]".format(title=title)
+        """
+        Wait for button with ``@title`` attribute value and perform click action on button in web page
+         - uses ``//button[contains(normalize-space(@title),'{title}')]`` locator internally
+         - ``title`` will be replaced in locator
+        """
+        locator = "//button[contains(normalize-space(@title),'{title}')]".format(title=title)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -71,4 +104,7 @@ class ButtonHelper(Util):
     
     @keyword("Click On Button By Title With Retry")
     def click_on_button_by_title_with_retry(self, title, retry="3x", retry_interval="2s"):
+        """
+        Similar to ``Click On Button By Title`` with retry
+        """
         BuiltIn().wait_until_keyword_succeeds(retry, retry_interval, "SeleniumHelperLibrary.Click On Button By Title", title)

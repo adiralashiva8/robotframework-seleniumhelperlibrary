@@ -35,6 +35,9 @@ class WaitHelper(Util):
     
     @keyword("Wait For WebElement")
     def wait_for_webelement(self, locator):
+        """
+        Wait for `locator` present in webpage then scroll to element
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -43,6 +46,9 @@ class WaitHelper(Util):
 
     @keyword("Wait For WebElement Disappear")
     def wait_for_webelement_disappear(self, locator):
+        """
+        Wait for `locator` not present in webpage
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element_not_present(self, self.sellib, locator)
@@ -59,6 +65,9 @@ class WaitHelper(Util):
 
     @keyword("Wait Until DOM Loaded")
     def wait_until_dom_loaded(self):
+        """
+        Wait until dom loaded in web page
+        """
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             self.sellib.wait_for_condition('return window.document.readyState === "complete"')
