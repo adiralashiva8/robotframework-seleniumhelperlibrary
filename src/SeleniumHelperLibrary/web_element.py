@@ -13,9 +13,9 @@ class WebElementHelper(Util):
     def webelement_by_text_should_be_present(self, text, index="last()"):
         """
         Wait for webelement with exact `text` present in web page
-         - uses ``(//*[normalize-space(),'{text}'])[{index}]`` locator internally
+         - uses ``(//*[normalize-space()='{text}'])[{index}]`` locator internally
         """
-        locator = "(//*[normalize-space(),'{text}'])[{index}]".format(text=text, index=index)
+        locator = "(//*[normalize-space()='{text}'])[{index}]".format(text=text, index=index)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -26,9 +26,9 @@ class WebElementHelper(Util):
     def webelement_by_text_should_not_be_present(self, text, index="last()"):
         """
         Wait for webelement with exact `text` present in web page
-         - uses ``(//*[normalize-space(),'{text}'])[{index}]`` locator internally
+         - uses ``(//*[normalize-space()='{text}'])[{index}]`` locator internally
         """
-        locator = "(//*[normalize-space(),'{text}'])[{index}]".format(text=text, index=index)
+        locator = "(//*[normalize-space()='{text}'])[{index}]".format(text=text, index=index)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element_not_present(self, self.sellib, locator)
@@ -39,9 +39,9 @@ class WebElementHelper(Util):
     def click_on_webelement_by_text(self, text, index="last()"):
         """
         Wait for webelement with exact `text` present in web page
-         - uses ``(//*[normalize-space(),'{text}'])[{index}]`` locator internally
+         - uses ``(//*[normalize-space()='{text}'])[{index}]`` locator internally
         """
-        locator = "(//*[normalize-space(),'{text}'])[{index}]".format(text=text, index=index)
+        locator = "(//*[normalize-space()='{text}'])[{index}]".format(text=text, index=index)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)

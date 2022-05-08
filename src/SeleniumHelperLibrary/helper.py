@@ -13,7 +13,7 @@ from .wait import WaitHelper
 from .text import TextHelper
 from .link import LinkHelper
 from .button import ButtonHelper
-from .webelement import WebElementHelper
+from .web_element import WebElementHelper
 from .util import Util
 
 class SeleniumHelperLibrary(AttributeHelper, ClickHelper,

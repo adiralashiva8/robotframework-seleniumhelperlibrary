@@ -13,9 +13,9 @@ class LinkHelper(Util):
     def link_should_be_present(self, text, index="last()"):
         """
         Wait for link with exact ``text`` present in web page
-         - uses ``(//a[normalize-space(),'{text}'])[{index}]`` locator internally
+         - uses ``(//a[normalize-space()='{text}'])[{index}]`` locator internally
         """
-        locator = "(//a[normalize-space(),'{text}'])[{index}]".format(text=text, index=index)
+        locator = "(//a[normalize-space()='{text}'])[{index}]".format(text=text, index=index)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
@@ -26,9 +26,9 @@ class LinkHelper(Util):
     def link_should_not_be_present(self, text, index="last()"):
         """
         Wait for link with exact ``text`` present in web page
-         - uses ``(//a[normalize-space(),'{text}'])[{index}]`` locator internally
+         - uses ``(//a[normalize-space()='{text}'])[{index}]`` locator internally
         """
-        locator = "(//a[normalize-space(),'{text}'])[{index}]".format(text=text, index=index)
+        locator = "(//a[normalize-space()='{text}'])[{index}]".format(text=text, index=index)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element_not_present(self, self.sellib, locator)
@@ -39,9 +39,9 @@ class LinkHelper(Util):
     def click_on_link(self, text, index="last()"):
         """
         Wait for link with exact ``text`` present in web page
-         - uses ``(//a[normalize-space(),'{text}'])[{index}]`` locator internally
+         - uses ``(//a[normalize-space()='{text}'])[{index}]`` locator internally
         """
-        locator = "(//a[normalize-space(),'{text}'])[{index}]".format(text=text, index=index)
+        locator = "(//a[normalize-space()='{text}'])[{index}]".format(text=text, index=index)
         self.sellib = BuiltIn().get_library_instance('SeleniumLibrary')
         try:
             Util.wait_for_element(self, self.sellib, locator)
